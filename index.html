@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Do You Feel?</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            /* Perpaduan background warna pink dan merah dengan gradasi soft */
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #feada6 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 35px 25px;
+            border-radius: 24px;
+            box-shadow: 0 12px 30px rgba(214, 51, 108, 0.25);
+            max-width: 440px;
+            width: 100%;
+            text-align: center;
+            border: 3px solid #ffb6c1;
+        }
+
+        /* Stiker Maskot Utama */
+        .sticker-header {
+            font-size: 52px;
+            margin-bottom: 15px;
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        h2 {
+            color: #d6336c;
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 14px 20px;
+            font-size: 16px;
+            font-weight: 700;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .btn-love {
+            background-color: #ff4d6d;
+            color: white;
+        }
+
+        .btn-love:hover {
+            background-color: #c9184a;
+            transform: translateY(-2px);
+        }
+
+        .btn-miss {
+            background-color: #ff758f;
+            color: white;
+        }
+
+        .btn-miss:hover {
+            background-color: #ff4d6d;
+            transform: translateY(-2px);
+        }
+
+        .btn-like {
+            background-color: #ffb3c1;
+            color: #590d22;
+        }
+
+        .btn-like:hover {
+            background-color: #ff8fa3;
+            transform: translateY(-2px);
+        }
+
+        /* Kotak Respon Output */
+        .response-box {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 16px;
+            background-color: #fff0f3;
+            border: 2px dashed #ff758f;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .response-sticker {
+            font-size: 64px;
+            margin-bottom: 10px;
+            animation: bounce 1.5s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .response-text {
+            color: #a4133c;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Stiker Header Bertema Kasih Sayang -->
+        <div class="sticker-header">💖 💌 🌸</div>
+        <h2>How do you feel?</h2>
+
+        <!-- 3 Tombol Pilihan -->
+        <div class="btn-group">
+            <button class="btn-love" onclick="showLove()">I love you ❤️</button>
+            <button class="btn-miss" onclick="showMiss()">I miss you 🥺</button>
+            <button class="btn-like" onclick="showLike()">I like you 😊</button>
+        </div>
+
+        <!-- Tampilan Hasil Respon -->
+        <div class="response-box" id="response-box">
+            <div class="response-sticker" id="res-sticker"></div>
+            <div class="response-text" id="res-text"></div>
+        </div>
+    </div>
+
+    <script>
+        function showLove() {
+            const responseBox = document.getElementById('response-box');
+            const resSticker = document.getElementById('res-sticker');
+            const resText = document.getElementById('res-text');
+
+            resSticker.innerText = '🌹✨💖';
+            resText.innerText = '"Kamu adalah alasan di balik senyumku setiap hari. Mencintaimu adalah hal terindah yang pernah hadir dalam hidupku."';
+            
+            responseBox.style.display = 'block';
+        }
+
+        function showMiss() {
+            const responseBox = document.getElementById('response-box');
+            const resSticker = document.getElementById('res-sticker');
+            const resText = document.getElementById('res-text');
+
+            // Stiker berpelukan yang lucu dan hangat
+            resSticker.innerText = '🫂🧸💖';
+            resText.innerText = 'Ini pelukan hangat dan erat untukmu! Semoga rasa rindu ini segera terobati yaa...';
+            
+            responseBox.style.display = 'block';
+        }
+
+        function showLike() {
+            const responseBox = document.getElementById('response-box');
+            const resSticker = document.getElementById('res-sticker');
+            const resText = document.getElementById('res-text');
+
+            resSticker.innerText = '🥰🙏✨';
+            resText.innerText = 'Terima kasih banyak ya! Kamu juga sosok yang sangat menyenangkan dan berarti!';
+            
+            responseBox.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
